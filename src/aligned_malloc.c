@@ -1,11 +1,25 @@
-/*
- * aligned_malloc.c
- *
- *  Created on: Jul 12, 2019
- *      Author: ubuntu
- */
+/**
+* @file aligned_malloc.c
+* @brief This function contains implementation of the
+* Aligned Dynamic Memory Allocation
+*
+* @author Sunil Kumar
+*
+* @date 16/7/2019
+*/
+
 
 #include "../inc/header.h"
+
+/**
+* @brief This function will check if given number is power of 2 or
+* multiple of another given number
+* @author Sunil Kumar
+* @param num1: base number
+* @param num2: exponent number
+* @return 1 if given number is power of 2 or multiple of num2; 0 otherwise
+* @date 16/7/2019
+*/
 int8_t checkIfpowerOfNumber(uint32_t num1, uint32_t num2)
 {
 	uint32_t count = 0;
@@ -23,7 +37,14 @@ int8_t checkIfpowerOfNumber(uint32_t num1, uint32_t num2)
 	return count;
 }
 
-
+/**
+* @brief This function will find the power of 2 or multiple of aligned number
+* @author Sunil Kumar
+* @param addr: address
+* @param alignedNum: aligned number
+* @return aligned address
+* @date 16/7/2019
+*/
 uint32_t findPowerOfNumberedAddress(uint32_t addr, uint32_t alignedNum)
 {
 	uint32_t retval = 0;
@@ -43,7 +64,14 @@ uint32_t findPowerOfNumberedAddress(uint32_t addr, uint32_t alignedNum)
 	return addr;
 }
 
-
+/**
+* @brief This function will allocate the address aligned for the given alignedNumber
+* @author Sunil Kumar
+* @param alignedNum: aligned number
+* @param numOfBytes: number of bytes to be allocated
+* @return aligned address
+* @date 16/7/2019
+*/
 void *aligned_malloc(uint32_t alignedNumber, uint32_t numOfBytes)
 {
 	void *act_addr = NULL;
@@ -61,7 +89,14 @@ void *aligned_malloc(uint32_t alignedNumber, uint32_t numOfBytes)
 	return cur_addr;
 }
 
-
+/**
+* @brief This function will find the actual address for given address in
+* doubly linked list
+* @author Sunil Kumar
+* @param cur_addr: pointer to the address to be freed
+* @return 0 if memory free is successful; -1 otherwise
+* @date 16/7/2019
+*/
 int32_t aligned_free(void *cur_addr)
 {
 	int32_t retval = 0;

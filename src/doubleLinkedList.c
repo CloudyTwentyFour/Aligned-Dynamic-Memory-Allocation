@@ -1,7 +1,30 @@
+/**
+* @file doubelLinkedList.c
+* @brief This file contains implementation of doubly linked list
+* and API to add, remove and find the nodes
+*
+* @author Sunil Kumar
+*
+* @date 16/7/2019
+*/
+
 #include "../inc/header.h"
 
-static alStr *headptr = NULL;
 
+/**
+ * @brief alStr is Head pointer of the doubly linked list
+ * 
+ */
+static alStr *headptr = NULL; /**< head pointer will be pointing to base node's address */
+
+
+/**
+* @brief This function will print all the nodes in doubly linked list
+* @author Sunil Kumar
+* @param void
+* @return NONE
+* @date 16/7/2019
+*/
 void print_all_nodes(void)
 {
 	alStr *temp = headptr;
@@ -12,6 +35,15 @@ void print_all_nodes(void)
 	}
 }
 
+/**
+* @brief This function will add the given information new node and 
+* add the new node in to middle of the doubly linked list
+* @author Sunil Kumar
+* @param act_addr : actual address of Dynamically allocated memory
+* @param cur_addr : current address of Dynamically allocated memory
+* @return NONE
+* @date 16/7/2019
+*/
 void add_node_middle(uint32_t act_addr, uint32_t cur_addr)
 {
 	alStr *temp = malloc(sizeof(alStr));
@@ -65,6 +97,16 @@ void add_node_middle(uint32_t act_addr, uint32_t cur_addr)
 	}
 }
 
+/**
+* @brief This function will find the node in the doubly linked list with
+* given current address and delete that particular node after retrieving
+* the actual address stored in that node
+* @author Sunil Kumar
+* @param cur_addr : current address of the dynamically allocation memory
+* @return act_addr : returns actual address of dynamically allocated memory
+* upon success; otherwise zero
+* @date 16/7/2019
+*/
 uint32_t find_addr_delete_node(uint32_t cur_addr)
 {
 	uint32_t retval = 0;
@@ -96,6 +138,15 @@ uint32_t find_addr_delete_node(uint32_t cur_addr)
 	return retval;
 }
 
+/**
+* @brief This function will add the given arguments into new node and add the
+* new node to the last of the doubly linked list
+* @author Sunil Kumar
+* @param act_addr : actual address of the dynamically allocated memory
+* @param cur_addr : current address of the dynamically allocated memory
+* @return NONE
+* @date 16/7/2019
+*/
 void add_node_last(uint32_t act_addr, uint32_t cur_addr)
 {
 	alStr *temp = malloc(sizeof(alStr));
@@ -121,7 +172,15 @@ void add_node_last(uint32_t act_addr, uint32_t cur_addr)
 		headptr = temp;
 	}
 }
-
+/**
+* @brief This function will add the given arguments into new node and add the
+* new node to the beginning of the doubly linked list
+* @author Sunil Kumar
+* @param act_addr : actual address of the dynamically allocated memory
+* @param cur_addr : current address of the dynamically allocated memory
+* @return NONE
+* @date 16/7/2019
+*/
 void add_node_begin(uint32_t act_addr, uint32_t cur_addr)
 {
 	alStr *temp = malloc(sizeof(alStr));
